@@ -1,6 +1,11 @@
 import { Controller, Get } from '@nestjs/common';
+import { getHeapStatistics } from 'v8';
 import { AppService } from './app.service';
 
+/* Function of Controller
+  get Url
+  return Result of Functions
+*/
 @Controller()
 export class AppController {
   constructor(private readonly appService: AppService) {}
@@ -11,8 +16,8 @@ export class AppController {
   }
 
   @Get("/Hello")
-  sayHello():string {
-    return "Hello everyone";
+  getHi(): string {
+    return this.appService.getHi();
   }
 }
 
