@@ -1,5 +1,6 @@
 import { Module } from '@nestjs/common';
 import { MoviesController } from './movies/movies.controller';
+import { MoviesService } from './movies/movies.service';
 
 /* @ decorator Looks like JSX Components
  * @ add functions in Class
@@ -9,7 +10,7 @@ import { MoviesController } from './movies/movies.controller';
 @Module({
   imports: [],
   controllers: [MoviesController],
-  providers: [],
+  providers: [MoviesService],
 })
 
 /* AppController
