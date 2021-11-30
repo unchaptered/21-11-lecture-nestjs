@@ -22,7 +22,7 @@ export class MoviesService {
         this.movies = this.movies.filter(movie => movie.id !== +id);
     }
     //create
-    postSingleMovie(movieData: CreateMovieDto){
+    createSingleMovie(movieData: CreateMovieDto){
         this.movies.push({
             id:this.movies.length+1,
             ...movieData

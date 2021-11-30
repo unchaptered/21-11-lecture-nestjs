@@ -21,8 +21,8 @@ export class MoviesController {
     }
 
     @Post()
-    postSingleMovie(@Body() movieData:CreateMovieDto){
-        return this.moviesService.postSingleMovie(movieData);
+    createSingleMovie(@Body() movieData:CreateMovieDto){
+        return this.moviesService.createSingleMovie(movieData);
     }
 
     @Delete(":id")
