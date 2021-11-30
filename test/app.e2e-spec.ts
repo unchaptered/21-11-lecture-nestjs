@@ -6,7 +6,7 @@ import { AppModule } from "./../src/app.module";
 describe("AppController (e2e)", () => {
   let app: INestApplication;
 
-  beforeEach(async () => {
+  beforeAll(async () => {
     const moduleFixture: TestingModule = await Test.createTestingModule({
       imports: [AppModule],
     }).compile();
@@ -45,9 +45,27 @@ describe("AppController (e2e)", () => {
         // 405 means Method Not Allowed
     });
   });
-  describe("/movies/:id", ()=>{
-    it.todo("GET");
-    it.todo("POST");
-    it.todo("PATCH");
-  })
+  describe('/movies/:id', () => {
+    it('GET 200', () => {
+      return request(app.getHttpServer())
+        .get('/movies/1')
+        .expect(200);
+    });
+    it('GET 404', () => {
+      return request(app.getHttpServer())
+        .get('/movies/999')
+        .expect(404);
+    });
+    it('PATCH 200', () => {
+      return request(app.getHttpServer())
+        .patch('/movies/1')
+        .send({ title: 'Updated Test' })
+        .expect(200);
+    });
+    it('DELETE 200', () => {
+      return request(app.getHttpServer())
+        .delete('/movies/1')
+        .expect(200);
+    });
+  });
 });

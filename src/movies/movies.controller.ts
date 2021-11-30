@@ -1,9 +1,9 @@
-import { Body, Controller, Delete, Get, Param, Patch, Post, Query, Req, Res  } from '@nestjs/common';
-import { CreateMovieDto } from './dto/create-movie.dto';
-import { Movie } from './entities/movie.entity';
-import { MoviesService } from './movies.service';
+import { Body, Controller, Delete, Get, Param, Patch, Post, Query, Req, Res  } from "@nestjs/common";
+import { CreateMovieDto } from "./dto/create-movie.dto";
+import { Movie } from "./entities/movie.entity";
+import { MoviesService } from "./movies.service";
 
-@Controller('movies')
+@Controller("movies")
 export class MoviesController {
     constructor(private readonly moviesService: MoviesService) {}
 
